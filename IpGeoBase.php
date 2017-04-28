@@ -13,6 +13,8 @@ use yii\base\Component;
 /**
  * Компонент реализует логику взаимодействиея с сервисом @link http://ipgeobase.ru/Help.html
  * И работает как с локальной базой сервиса, которая находится в свободном доспуте, так и с сервисом напрямую
+ * 
+ * @property integer $serviceTimeout
  */
 class IpGeoBase extends Component
 {
