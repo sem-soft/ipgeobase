@@ -211,9 +211,9 @@ class IpGeoBase extends Component
 		'[[c]].[[lat]]',
 		'[[c]].[[lng]]'
 	    ])->
-	    from('{{%geo__base}} [[b]]')->
+	    from('{{%geo__base}} b')->
 	    leftJoin([
-		'{{%geo__cities}} [[c]]'
+		'{{%geo__cities}} c'
 	    ], '[[b]].[[city_id]] = [[c]].[[city_id]]')->
 	    limit(1);
 	}
