@@ -94,9 +94,10 @@ class IpGeoBase extends Component
 	try {
 
 	    $query = $this->getQuery();
-	    $query->where('[[c]].[[city]] = :city', [
+	    $query->where('[[c]].[[city]] = :city');
+	    $query->params = [
 		':city'	=>  $city
-	    ]);
+	    ];
 	    
 	    $info = null;
 	    
@@ -132,9 +133,10 @@ class IpGeoBase extends Component
 	try {
 	    
 	    $query = $this->getQuery();
-	    $query->where('[[b]].[[long_ip1]] <= :longIp AND [[b]].[[long_ip2]] >= :longIp', [
+	    $query->where('[[b]].[[long_ip1]] <= :longIp AND [[b]].[[long_ip2]] >= :longIp');
+	    $query->params = [
 		':longIp'	=>  ip2long($ip)
-	    ]);
+	    ];
 	    
 	    $geo = null;
 	    
@@ -203,6 +205,7 @@ class IpGeoBase extends Component
     {
 	
 	if (is_null($this->_query)) {
+	    
 	    $this->_query = (new \yii\db\Query)->select([
 		'[[b]].[[country]]',
 		'[[c]].[[city]]',
@@ -216,6 +219,7 @@ class IpGeoBase extends Component
 		'{{%geo__cities}} c'
 	    ], '[[b]].[[city_id]] = [[c]].[[city_id]]')->
 	    limit(1);
+	    
 	}
 	
 	return $this->_query;
