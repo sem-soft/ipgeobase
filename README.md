@@ -33,5 +33,9 @@ if ($g = Yii::$app->geo->geo) {
 if ($g = Yii::$app->geo->getGeo('86.XXX.YYY.ZZZ')) {
     echo $g->city;
 }
+
+if ($g = Yii::$app->geo->getCityInfo('Москва')) {
+    echo $g->city;
+}
  ?>
  ```
